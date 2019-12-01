@@ -1,0 +1,189 @@
+a,b,body,dd,div,dl,dt,form,h1,h2,h3,h4,h5,h6,html,i,img,input,label,li,p,select,span,strong,ul{margin:0;padding:0}
+li{list-style:none}
+img{border:0 none;vertical-align:top}
+form,input{outline:0 none;border:0 none}
+b,h1,h2,h3,h4,strong{font-weight:400}
+i{font-style:normal}
+a{text-decoration:none;color:#666}
+a:hover{color:#1296db}
+.clearFix{width:1200px;height:auto;margin:0 auto;min-width:1200px}
+.clearFix:after{content:'.';height:0;display:block;clear:both;visibility:hidden}
+body{font-family:"Microsoft YaHei",arial;font-size:14px;color:#333;background:#fff}
+.dhide{display:none}
+.colblue{color:#4ac5d5}
+.colwhite{color:#fff}
+body{background:#080741 url(../images/main-bg.jpg)}
+.main-title{text-align:center;color:#7ed6fc;position:relative;padding:20px 0}
+.main-time{color:#fff;text-align:center;font-size:24px}
+.topstation-box{margin-top:10px}
+.leftbox{background:#0a1553;padding:10px;border-radius:8px;overflow:hidden}
+.topstation-item{overflow:hidden;margin-bottom:10px}
+.topstation-left{overflow:hidden;float:left}
+.topstation-title{color:#9fbeea;font-size:16px;margin-bottom:10px}
+.left-circle{background:#4ccee6;float:left;width:20px;height:20px;color:#080741;border-radius:50%;text-align:center;margin-right:10px}
+.station-main{background:#376a99;float:left;color:#fff;text-align:center;margin-right:10px}
+.station-txt01{float:left;color:#66b9e5}
+.station-txt02{float:left;color:#66b9e5; min-width: 40px;}
+.topstation-right{float:right;overflow:hidden}
+.status{height:8px;border:1px solid #66b9e5;border-radius:8px;width:80px;float:left;margin-top:5px;margin-right:10px}
+.charts{background:#65badf;border-radius:6px;height:6px}
+.daycount-box{background:#1b5084;padding:10px;border-radius:8px;overflow:hidden}
+.sale-box{border:1px solid #2f679a;padding:10px;overflow:hidden;margin-bottom:15px}
+.sale-main{overflow:hidden}
+.sale-title{color:#9fbeea;font-size:16px;margin-bottom:10px}
+.day-count{color:#4ac5d5;font-style:italic;font-weight:700;font-size:32px}
+.sale-right{font-size:16px;text-align:right}
+.mapbox{width:100%; overflow: hidden;}
+.mapbox img{width:100%}
+.follow-box{text-align:center}
+.follow-tc{display:table-cell;text-align:center}
+.follow-main{display:table-cell;vertical-align:middle}
+.follow-title{color:#9fbeea;font-size:16px;text-align:center;margin-bottom:10px}
+.follow-circle{width:120px;height:120px;border-radius:50%;text-align:center;display:table;color:#fff;background:url(../images/circle.png) no-repeat}
+.follow-count{font-size:16px;font-weight:700}
+.sale-week{background:#071049;padding:10px;border-radius:8px;overflow:hidden}
+.seller-box{background:#0a1553;padding:10px;border-radius:8px;overflow:hidden;margin-top:10px}
+.seller-left{overflow:hidden;float:left}
+.seller-item{overflow:hidden;margin-bottom:10px}
+{float:right;overflow:hidden}
+.seller-main{float:left;color:#fff;margin-right:10px}
+.seller-right{float:left;overflow:hidden;margin-left:10px}
+.seller-right .status{width: 50px;}
+.seller-txt01{float:left;color:#66b9e5}
+.seller-txt02{float:left;color:#66b9e5}
+.seller-txt03{float:left;color:#66b9e5}
+.ways-box{background:#1b5084;padding:10px;border-radius:8px;overflow:hidden;margin-top:10px}
+.buytime{background:#1b5084;padding:10px;border-radius:8px;overflow:hidden;margin-top:10px}
+.hot-ways{overflow:hidden}
+.hotway-main{overflow:hidden;background:#376a99;color:#fff;float:left;margin-right:10px}
+.hotway-txt01{float:left;color:#66b9e5; min-width: 50px;}
+.hotway-txt02{float:left;color:#66b9e5}
+.dashname{color:#fff;text-align:center;margin-top:5px}
+.fl{float:left}
+.fr{float:right}
+.none{display:none}
+.inrow{font-size:0;font-size:12px;font-family:arial;letter-spacing:-3px}
+.inrow span,.inrow>li{display:inline-block;font-size:14px;letter-spacing:normal;word-spacing:normal;margin-right:3px}
+.dataNums .dataOne{width:26px;height:36px;text-align:center;background:url(../images/num-bg.png) no-repeat}
+.dataNums .dataBoc{position:relative;width:100%;height:100%;overflow:hidden}
+.dataNums .dataBoc .tt{position:absolute;top:0;left:0;width:100%;height:100%}
+.dataNums .tt span{width:100%;height:100%;font-size:30px;color:#1a538a}
+.swiper-pagination{ bottom: 0; height: 30px; background: rgba(20,68,117,0.5);}
+.slide-station{ display: inline-block; line-height: 30px; color: #9fbeea; margin-right: 8px; cursor: pointer;}
+a:hover{ text-decoration: none; color: #fff;}
+.slide-active{ color: #fff;}
+.hotways-list{ height: 310px; overflow: auto;}
+.hotwaysbg{ background: #0a1553;
+}
+ .hotways-list::-webkit-scrollbar 
+{ 
+    width: 8px; 
+   border: 1px solid #fff;
+    border-radius: 10px; 
+} 
+   
+/*定义滚动条轨道 内阴影+圆角*/ 
+.hotways-list::-webkit-scrollbar-track 
+{ 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+     border-radius: 10px; 
+   /* background-color: #009de4; */
+} 
+   
+/*定义滑块 内阴影+圆角*/ 
+.hotways-list::-webkit-scrollbar-thumb 
+{ 
+    border-radius: 10px; 
+    background-color: #009de4; 
+}
+.mapcont{ width: 100%; height: 100%;}
+
+@media (min-width:980px){
+.main-time{position:absolute;right:15px;top:29px;text-align:right}
+.wrap-station{display:table;overflow:hidden;width:100%;min-height:540px}
+.seller-box{min-height:252px}
+.sale-week{display:table;overflow:hidden;width:100%;margin-top:10px;min-height:252px}
+.topstation-title{margin-bottom:15px; margin-top: 10px;}
+.station-main{width:100px;text-align:center}
+.seller-main{width:60px;color:#fff}
+.seller-txt01{min-width: 32px;}
+.seller-txt02{ min-width: 45px;}
+.topstation-item{overflow:hidden}
+.station-txt01{font-size:16px}
+.station-txt02{font-size:16px}
+.hotway-txt01{font-size:16px;margin-right:30px;}
+.hotway-txt02{font-size:16px}
+.leftbox{min-height:576px}
+.hotway-main{width:120px;text-align:center}
+.mapbox{height:420px}
+.swiper-wrapper,.swiper-container{height:420px}
+.daycount-box{min-height:576px}
+.mapbox img{height:100%}
+.marr{padding-right:0}
+.marl{padding-left:0}
+.seller-txt03{ margin-left: 20px;}
+
+}
+@media (max-width:980px){.main-title{font-size:20px}
+.main-time{font-size:18px;margin-bottom:15px}
+.station-main{padding:0 10px}
+.seller-main{color:#fff;width:50px}
+.hotway-main{width:120px;text-align:center}
+.status{height:8px;border:1px solid #66b9e5;border-radius:8px;width:80px;float:left;margin-top:5px;margin-right:10px}
+.daycount-box{background:#0a1553;margin-top:10px}
+.leftbox{margin-top:10px}
+.ways-box{background:#0a1553}
+.buytime{background:#0a1553}
+.day-count{font-size:24px}
+.sale-right{float:right;margin-top:10px;font-size:14px}
+.follow-count{font-size:16px;font-weight:700}
+.follow-box02{margin-top:15px}
+.sale-week{margin:10px 0}
+.dashname{margin-bottom:20px}
+.hotway-txt01{margin-right:30px}
+.seller-txt03{ margin-left: 10px;}
+.swiper-wrapper{ height: 200px;}
+
+}
+
+@media (min-width:980px) and (max-width:1460px){.station-main{width:60px}
+.status{width:50px}
+.seller-right .status{width:40px;margin-right: 0;}
+.hotway-main{width:90px}
+.hotway-txt01{margin-right:10px}
+.seller-right{margin-left:5px}
+.day-count{font-size:26px}
+.mapbox{height:430px}
+.swiper-wrapper,.swiper-container{height:430px}
+.mapbox img{ height: 430px;}
+
+.inrow span,.inrow>li{display:inline-block;font-size:14px;letter-spacing:normal;word-spacing:normal;margin-right:1px}
+.dataNums .dataOne{width:20px;height:30px;text-align:center;background:url(../images/num-bgsm.png) no-repeat}
+.dataNums .dataBoc{position:relative;width:100%;height:100%;overflow:hidden}
+.dataNums .dataBoc .tt{position:absolute;top:0;left:0;width:100%;height:100%}
+.dataNums .tt span{width:100%;height:100%;font-size:20px;color:#1a538a}
+.seller-txt03{ margin-left: 5px;}
+.seller-main{width:50px; margin-right: 0;}
+.seller-txt02{ min-width: 32px;}
+}
+
+@media (min-width:980px) and (max-width:1190px){.sale-right{font-size:14px}
+.station-main{width:50px;margin-right:3px}
+.status{width:30px;margin-right:3px}
+.seller-main{width:50px; margin-right: 5px;}
+.hotway-txt01{font-size:14px}
+.hotway-txt02{font-size:14px}
+.left-circle{margin-right:3px}
+.hotway-main{margin-right:3px}
+.day-count{font-size:16px}
+.follow-circle{height:80px!important;width:80px!important;background:url(../images/circle80.png) no-repeat}
+.follow-count{font-size:12px;font-weight:400}
+.seller-item{ font-size: 12px;}
+.seller-left .left-circle{ width: 15px; height: 15px;}
+.seller-main{ width: 40px; margin-right: 0;}
+.seller-right{ margin-left:3px ;}
+.seller-txt03{ margin-left: 0;}
+.hotways-list::-webkit-scrollbar { width: 3px; } 
+.seller-txt01{min-width: 28px;}
+
+}

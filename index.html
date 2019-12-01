@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>昭通交通运输运输集团智慧出行大数据</title>
+		<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
+		<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/main.css">
+		<!--[if lt IE 9]>
+<script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+	</head>
+
+	<body>
+		<header>
+			<div class="container-fluid">
+				<div class="row">
+					<h1 class="col-md-12 col-sm-12 main-title">昭通交通运输集团智慧出行大数据</h1>
+				</div>
+				<div class="col-sm-12 main-time">
+
+				</div>
+			</div>
+		</header>
+		<section class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 col-sm-12 marr">
+					<div class="leftbox">
+						<div class="row">
+							<div class="col-md-6 col-md-12 follow-box">
+								<div style="display: inline-block; text-align: center;">
+									<div class="follow-title">公众号累计关注</div>
+									<div class="follow-circle">
+										<div class="follow-main">
+											<p class="follow-count usercount">0</p>
+											<p>人</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-md-12 follow-box follow-box02">
+								<div style="display: inline-block; text-align: center;">
+									<div class="follow-title">公众号今日关注</div>
+									<div class="follow-circle">
+										<div class="follow-main">
+											<p class="follow-count today-count">0</p>
+											<p>人</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="topstation-box">
+									<div class="topstation-title">
+										站点售票排行
+									</div>
+									<div class="topstation-list">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="daycount-box">
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<div class="sale-box">
+									<div class="sale-title">本日销售金额</div>
+									<div class="sale-main">
+										<div class="sale-left">
+											<div id="day-count">0</div>
+
+										</div>
+										<div class="sale-right">
+											<span class="colwhite">较昨天增加</span><span class="colblue ticketraise">0</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-12">
+								<div class="sale-box">
+									<div class="sale-title">本日购票人数</div>
+									<div class="sale-main">
+										<div class="sale-left">
+											<div id="people-count">0 </div>
+
+										</div>
+										<div class="sale-right">
+											<span class="colwhite">较昨天增加</span><span class="colblue peopleraise">0</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="mapbox">
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide swiper-no-swiping">
+												<div class="mapcont" id="kmscmap"></div>
+											</div>
+											<div class="swiper-slide swiper-no-swiping">
+												<div class="mapcont" id="ztscmap"></div>
+											</div>
+											<div class="swiper-slide swiper-no-swiping">
+												<div class="mapcont" id="kmxcmap"></div>
+											</div>
+											<div class="swiper-slide swiper-no-swiping">
+												<div class="mapcont" id="ztxcmap"></div>
+											</div>
+										</div>
+										<ul class="swiper-pagination"></ul>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-12 marl">
+					<div class="leftbox">
+						<div class="row">
+							<div class="col-md-12 col-sm-12 topstation-title">
+								购票方式分析
+							</div>
+						</div>
+						<div class="row">
+							<div class="dashbox">
+								<div class="col-md-4 col-sm-12">
+									<div class="wxdash" style="height: 120px;" id="wxdash"></div>
+									<div class="dashname">线上</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="wxdash" style="height: 120px;" id="ckdash"></div>
+									<div class="dashname">窗口</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="wxdash" style="height: 120px;" id="jqdash"></div>
+									<div class="dashname">售票机</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="hot-ways">
+									<div class="topstation-title">
+										热门线路TOP10
+									</div>
+									<div class="hotways-list">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+		<section class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 col-sm-12 marr">
+					<div class="seller-box">
+						<div class="topstation-title">
+							售票员销量TOP5
+						</div>
+						<div class="seller-list">
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="buytime">
+						<div class="buytime-title sale-title">
+							购票时段分析
+						</div>
+						<div class="timeline" style="height: 200px;" id="timeline"></div>
+					</div>
+
+				</div>
+				<div class="col-md-3 col-sm-12 marl">
+					<div class="sale-week">
+						<div class="sale-maintitle">
+							<span class="sale-title">销量走势</span>
+							<span style="color: #66b9e5;">(近七天)</span>
+						</div>
+						<div class="sale-line" id="saleline" style="height: 200px;">
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!--站点排行榜-->
+		<div class="stationtemp dhide">
+			<div class="topstation-item">
+				<div class="topstation-left">
+					<div class="left-circle stationRank">
+						0
+					</div>
+					<div class="station-main StationName">
+
+					</div>
+					<div class="station-txt01 SaleAmount">
+						0
+					</div>
+				</div>
+				<div class="topstation-right">
+					<div class="status">
+						<div style="width:1%" class="charts stationchart">
+						</div>
+					</div>
+					<div class="station-txt02 SaleQuantity">
+						0
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--售票员排行榜-->
+		<div class="sellertemp dhide">
+			<div class="seller-item">
+				<div class="seller-left">
+					<div class="left-circle sellerrank">
+						0
+					</div>
+					<div class="seller-main sellername">
+
+					</div>
+					<div class="seller-txt01">
+						0
+					</div>
+				</div>
+				<div class="seller-right">
+					<div class="status">
+						<div style="width:0" class="charts sellerchart">
+						</div>
+					</div>
+					<div class="seller-txt02">
+						0
+					</div>
+					<div class="seller-txt03">
+						入榜<span class="TotalInTop">0</span>次
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--热门线路排行榜-->
+		<div class="hotlinetemp dhide">
+			<div class="topstation-item hotline-item">
+				<div class="topstation-left">
+					<div class="left-circle hotrank">
+						0
+					</div>
+					<div class="hotway-main linename">
+
+					</div>
+					<div class="hotway-txt01">
+						0
+					</div>
+					<div class="hotway-txt02">
+						0
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="js/numscroll.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="//webapi.amap.com/maps?v=1.4.13&key=cb46b91e0c80085a4c0e88839f40650f"></script>
+<script src="//a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>
+<script src="js/echarts.min.js"></script>
+<script>
+	var Serverurl = "http://127.0.0.1:8001";
+	var lastsale = 0; //上一次
+	var cursale = 0; //当前一次
+	var dsale = 0; //两次差值
+	var lastmen = 0; //上一次人数
+	var curmen = 0; //当前人数
+	var dmen = 0;
+	var today = '2019-03-06'
+	//var kmscpoints = [];
+	var colors = ['#fff', '#67c3e8'];
+	$(function() {
+		var now = new Date();
+		var year = now.getFullYear();
+		var month = now.getMonth() + 1;
+		var h = now.getHours() < 10 ? "0" + now.getHours() : now.getHours();
+		var m = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+		var day = now.getDate();
+		today = year + '-' + month + '-' + day;
+		var maintime = year + '年' + month + '月' + day + '日 ' + h + ':' + m;
+		$('.main-time').text(maintime);
+		setInterval(function() {
+			var curyear = new Date().getFullYear();
+			var curmonth = new Date().getMonth() + 1;
+			var curday = new Date().getDate();        
+			var hours = new Date().getHours();        
+			var minutes = new Date().getMinutes();        
+			var seconds = new Date().getSeconds();        
+			if(hours < 10) {          
+				hours = '0' + hours;        
+			}        
+			if(minutes < 10) {          
+				minutes = '0' + minutes;        
+			}        
+			if(seconds < 10) {          
+				seconds = '0' + seconds;        
+			}        
+			var maintime = curyear + '年' + curmonth + '月' + curday + '日 ' + hours + ':' + minutes + ':' + seconds;
+			$('.main-time').text(maintime);      
+		}, 1000)
+
+		getstationlist(); //站点排行榜
+		getsellerlist(); //销售员排行榜
+		getlinelist(); //热门线路排行榜
+		getusers(); //公众号累计关注
+		getsalecount(); //今日销售金额和人数
+		slaetype(); //购票方式分析
+		saletime(); //购票时段分析
+		saleweek(); //一周销量走势
+		getkmup();
+		getztup();
+		getkmdown();
+		getztdown();
+		totlainter();
+		updatestation();
+		dosale();
+		domen();
+
+	})
+	//站点排行榜
+	function getstationlist() {
+		var furl = '/ReportManage/Statistic/StationSaleRanking/';
+		var postdata = {
+			StatisticDate: today,
+			TopCount: 11
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					var datas = result.resultdata;
+					var length = datas.length;
+					if(length > 0) {
+						for(var i = 0; i < length; i++) {
+							addstation(datas[i]);
+						}
+					}
+				}
+			}
+		});
+	}
+
+	function addstation(datas) {
+		var list = $('.topstation-list');
+		var QuantityRatio = datas.QuantityRatio;
+		var curwidth = QuantityRatio * 100 + '%';
+		var SaleAmount = datas.SaleAmount;
+		if(SaleAmount == null || SaleAmount == '') {
+			SaleAmount = 0;
+		}
+		var item = $('.stationtemp .topstation-item').clone();
+		item.find(".stationRank").text(datas.Rank);
+		item.find(".StationName").text(datas.StationName);
+		item.find(".SaleAmount").text(SaleAmount);
+		item.find(".SaleQuantity").text(datas.SaleQuantity);
+		item.find(".stationchart").css('width', curwidth);
+		list.append(item);
+	}
+	//站点排行榜每小时更新一次
+	function updatestation() {
+		var myVar = setInterval(getsellerlist, 3600000);
+	}
+
+	//销售员排行榜
+	function getsellerlist() {
+		var furl = '/ReportManage/Statistic/StaffSaleRanking/';
+		var postdata = {
+			StatisticDate: today,
+			TopCount: 5
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					var datas = result.resultdata;
+					var length = datas.length;
+					if(length > 0) {
+						for(var i = 0; i < length; i++) {
+							addseller(datas[i]);
+						}
+					}
+				}
+			}
+		});
+	}
+
+	function addseller(datas) {
+		var list = $('.seller-list');
+		var QuantityRatio = datas.QuantityRatio;
+		var curwidth = QuantityRatio * 100 + '%';
+		var item = $('.sellertemp .seller-item').clone();
+		item.find(".sellerrank").text(datas.Rank);
+		item.find(".sellername").text(datas.Name);
+		item.find(".seller-txt01").text(datas.SaleQuantity);
+		item.find(".seller-txt02").text(datas.SaleAmount);
+		item.find(".TotalInTop").text(datas.TotalInTop);
+		item.find(".sellerchart").css('width', curwidth);
+		list.append(item);
+	}
+	//热门线路排行榜
+	function getlinelist() {
+		var furl = '/ReportManage/Statistic/LineSaleRanking/';
+		var postdata = {
+			StatisticDate: today,
+			TopCount: 0
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					var datas = result.resultdata;
+					var length = datas.length;
+					if(length > 0) {
+						for(var i = 0; i < length; i++) {
+							addline(datas[i]);
+						}
+					}
+				}
+			}
+		});
+	}
+
+	function addline(datas) {
+		var list = $('.hotways-list');
+		var item = $('.hotlinetemp .hotline-item').clone();
+		item.find(".hotrank").text(datas.Rank);
+		item.find(".linename").text(datas.LineName);
+		item.find(".hotway-txt01").text(datas.SaleQuantity);
+		item.find(".hotway-txt02").text(datas.SaleAmount);
+		if(datas.Rank > 10) {
+			item.find(".hotway-main").addClass('hotwaysbg');
+		}
+		list.append(item);
+	}
+
+	//公众号累计关注
+	function getusers() {
+		var furl = '/ReportManage/Statistic/WeixinGet/';
+		var postdata = {
+			beginDate: today,
+			endDate: today
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					$('.usercount').text(result.resultdata.cumulate_user);
+					$('.today-count').text(result.resultdata.new_user);
+				}
+			}
+		});
+	}
+
+	//本日销售金额一小时更新
+	function getrandom(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
+
+	function totlainter() {
+		var myVar = setInterval(getsalecount, 60000);
+
+	}
+	//销售金额统计
+	function getsalecount() {
+		var furl = '/ReportManage/Statistic/TodaySaleTotal';
+		var postdata = {
+			StatisticDate: today,
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					cursale = result.resultdata.SaleAmount;
+					curmen = result.resultdata.SaleQuantity; //最终购票人数
+					var ticketraise = result.resultdata.ThanYesterdayAmount;
+					var peopleraise = result.resultdata.ThanYesterdayQuantity;
+					if(ticketraise == null || ticketraise == '') {
+						ticketraise = 0;
+					}
+					if(peopleraise == null || peopleraise == '') {
+						peopleraise = 0;
+					}
+					$('.ticketraise').text(ticketraise);
+					$('.peopleraise').text(peopleraise);
+					salescroll();
+					mencroll();
+
+				} else {
+
+				}
+			}
+		});
+	}
+	var saleVar;
+
+	function salescroll() {
+		saleVar = setInterval(dosale, 30000);
+	}
+
+	function dosale() {
+		var dsale = cursale - lastsale;
+		var salerandom = getrandom(30, 200);
+		if(dsale < salerandom) {
+			salerandom = dsale;
+			clearInterval(saleVar);
+		}
+		dsale = dsale - salerandom;
+		var saleto = lastsale + salerandom;
+		if(lastsale == 0) {
+			saleto = cursale;
+		}
+
+		$("#day-count").rollNum({
+			deVal: saleto,
+			digit: 6
+		});
+		lastsale = saleto;
+	}
+
+	var menVar;
+
+	function mencroll() {
+		menVar = setInterval(domen, 30000);
+	}
+
+	function domen() {
+		var dmen = curmen - lastmen;
+		var menrandom = getrandom(1, 5);
+		if(dmen < menrandom) {
+			menrandom = dmen;
+			clearInterval(menVar);
+		}
+		dmen = dmen - menrandom;
+		var mento = lastmen + menrandom;
+		if(lastmen == 0) {
+			mento = curmen;
+		}
+
+		$("#people-count").rollNum({
+			deVal: mento,
+			digit: 4
+		});
+		lastmen = mento;
+	}
+	//购票方式分析
+	var kk = 0;
+	var spjvar = 0;
+
+	function slaetype() {
+		var furl = '/ReportManage/Statistic/SaleTypeRatio/';
+		var postdata = {
+			StatisticDate: today,
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					var datas = result.resultdata;
+					var length = datas.length;
+					var SaleType;
+					if(length > 0) {
+						for(var i = 0; i < length; i++) {
+							addtype(datas[i]);
+							kk = datas[0].QuantityRatio + datas[1].QuantityRatio;
+							spjvar = ((1 - kk) * 100).toFixed(2);
+						}
+					}
+				} else {
+
+				}
+			}
+		});
+	}
+
+	function addtype(datas) {
+		var wxdash = echarts.init(document.getElementById('wxdash'));
+		var ckdash = echarts.init(document.getElementById('ckdash'));
+		var jqdash = echarts.init(document.getElementById('jqdash'));
+		var SaleType = datas.SaleType;
+		var wxval, ckval, jqval
+		if(SaleType == 0) { //线上
+			wxval = ((datas.QuantityRatio) * 100).toFixed(2);
+			if(wxval == null || wxval == '') {
+				wxval = 0;
+			}
+			var wxoption = {
+				tooltip: {
+					formatter: "{a} : {c}%"
+				},
+				series: [{
+					name: '购票率',
+					type: 'gauge',
+					radius: '100%',
+					splitNumber: 5,
+					axisLine: { // 坐标轴线
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: [
+								[0.29, 'lime'],
+								[0.86, '#1e90ff'],
+								[1, '#ff4500']
+							],
+							width: 2,
+							shadowColor: '#1b2d7a', //默认透明
+							shadowBlur: 10
+						}
+					},
+					axisLabel: { // 坐标轴小标记
+						textStyle: { // 属性lineStyle控制线条样式
+							color: '#fff',
+							shadowColor: '#fff', //默认透明
+							shadowBlur: 10,
+
+						}
+					},
+					axisTick: { // 坐标轴小标记
+						length: 5, // 属性length控制线长
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: 'auto',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10,
+						}
+					},
+					splitLine: { // 分隔线
+						length: 8, // 属性length控制线长
+						lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式
+							width: 3,
+							color: '#fff',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10
+						}
+					},
+					pointer: {
+						width: 3,
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5
+					},
+					title: {
+						offsetCenter: [0, '-30%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+						}
+					},
+					detail: {
+						backgroundColor: 'rgba(30,144,255,0.8)',
+						borderWidth: 1,
+						borderColor: '#fff',
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5,
+						offsetCenter: [0, '80%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+							fontSize: '13'
+						},
+						formatter: '{value}%'
+					},
+					data: [{
+						value: wxval,
+						name: ''
+					}]
+				}]
+			};
+
+			wxdash.setOption(wxoption);
+		}
+		if(SaleType == 1) { //窗口
+			ckval = ((datas.QuantityRatio) * 100).toFixed(2);
+			console.log(ckval);
+			if(ckval == null || ckval == '') {
+				ckval = 0;
+			}
+			var ckoption = {
+				tooltip: {
+					formatter: "{a} : {c}%"
+				},
+				series: [{
+					name: '购票率',
+					type: 'gauge',
+					radius: '100%',
+					splitNumber: 5,
+					axisLine: { // 坐标轴线
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: [
+								[0.29, 'lime'],
+								[0.86, '#1e90ff'],
+								[1, '#ff4500']
+							],
+							width: 2,
+							shadowColor: '#1b2d7a', //默认透明
+							shadowBlur: 10
+						}
+					},
+					axisLabel: { // 坐标轴小标记
+						textStyle: { // 属性lineStyle控制线条样式
+							color: '#fff',
+							shadowColor: '#fff', //默认透明
+							shadowBlur: 10
+						}
+					},
+					axisTick: { // 坐标轴小标记
+						length: 5, // 属性length控制线长
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: 'auto',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10,
+						}
+					},
+					splitLine: { // 分隔线
+						length: 8, // 属性length控制线长
+						lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式
+							width: 3,
+							color: '#fff',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10
+						}
+					},
+					pointer: {
+						width: 5,
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5
+					},
+					title: {
+						offsetCenter: [0, '-30%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+						}
+					},
+					detail: {
+						backgroundColor: 'rgba(30,144,255,0.8)',
+						borderWidth: 1,
+						borderColor: '#fff',
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5,
+						offsetCenter: [0, '80%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+							fontSize: '14'
+						},
+						formatter: '{value}%'
+					},
+					data: [{
+						value: ckval,
+						name: ''
+					}]
+				}]
+			};
+
+			ckdash.setOption(ckoption);
+		}
+		if(SaleType == 2) { //售票机
+			jqval = 100 - (wxval + ckval);
+			if(jqval == null || jqval == '') {
+				jqval = 0;
+			}
+			var jqoption = {
+				tooltip: {
+					formatter: "{a} : {c}%"
+				},
+				series: [{
+					name: '购票率',
+					type: 'gauge',
+					radius: '100%',
+					splitNumber: 5,
+					axisLine: { // 坐标轴线
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: [
+								[0.29, 'lime'],
+								[0.86, '#1e90ff'],
+								[1, '#ff4500']
+							],
+							width: 2,
+							shadowColor: '#1b2d7a', //默认透明
+							shadowBlur: 10
+						}
+					},
+					axisLabel: { // 坐标轴小标记
+						textStyle: { // 属性lineStyle控制线条样式
+							color: '#fff',
+							shadowColor: '#fff', //默认透明
+							shadowBlur: 10
+						}
+					},
+					axisTick: { // 坐标轴小标记
+						length: 5, // 属性length控制线长
+						lineStyle: { // 属性lineStyle控制线条样式
+							color: 'auto',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10,
+						}
+					},
+					splitLine: { // 分隔线
+						length: 8, // 属性length控制线长
+						lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式
+							width: 3,
+							color: '#fff',
+							shadowColor: '#0b1956', //默认透明
+							shadowBlur: 10
+						}
+					},
+					pointer: {
+						width: 5,
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5
+					},
+					title: {
+						offsetCenter: [0, '-30%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+						}
+					},
+					detail: {
+						backgroundColor: 'rgba(30,144,255,0.8)',
+						borderWidth: 1,
+						borderColor: '#fff',
+						shadowColor: '#fff', //默认透明
+						shadowBlur: 5,
+						offsetCenter: [0, '80%'], // x, y，单位px
+						textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+							color: '#fff',
+							fontSize: '14'
+						},
+						formatter: '{value}%'
+					},
+					data: [{
+						value: spjvar,
+						name: ''
+					}]
+				}]
+			};
+
+			jqdash.setOption(jqoption);
+		}
+	}
+
+	//购票时段分析
+	var peoplemax, peoplemin, moneymax, moneymin, xtimelist, ypeoplelist, ymoneylist;
+
+	function saletime() {
+		var furl = '/ReportManage/Statistic/SaleTimeDistribution/';
+		var postdata = {
+			StatisticDate: today,
+		}
+		var saletrant = echarts.init(document.getElementById('timeline'));
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1) {
+					peoplemax = result.resultdata.QuantityMaxValue;
+					peoplemin = result.resultdata.QuantityMinValue;
+					moneymax = result.resultdata.AmountMaxValue;
+					moneymin = result.resultdata.AmountMinValue;
+					xtimelist = result.resultdata.TimeStepList;
+					ypeoplelist = result.resultdata.QuantityList;
+					ymoneylist = result.resultdata.AmountList;
+					var timeoption = {
+						color: colors,
+						tooltip: {
+							trigger: 'axis'
+						},
+						grid: {
+							left: '3%',
+							right: '3%',
+							bottom: '3%',
+							containLabel: true
+						},
+						legend: {
+							textStyle: {
+								color: '#9fbeea',
+								fontSize: '14'
+							},
+							data: ['人数', '金额']
+						},
+						xAxis: [{
+							type: 'category',
+							splitLine: {
+								show: true,
+								lineStyle: {
+									color: ['#113f71'],
+									type: 'dashed'
+								}
+							},
+							axisTick: {
+								alignWithLabel: true
+							},
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#fff',
+									fontSize: '14'
+								}
+							},
+							axisLine: {
+								lineStyle: {
+									color: '#61638a'
+								}
+							},
+							data: xtimelist
+						}],
+						yAxis: [{
+								type: 'value',
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: ['#113f71'],
+										type: 'dashed'
+									}
+								},
+								name: '金额(元)',
+								min: moneymin,
+								position: 'right',
+								axisLine: {
+									lineStyle: {
+										color: colors[0]
+									}
+								},
+								axisLabel: {
+									formatter: '{value}',
+									show: true,
+									textStyle: {
+										fontSize: '14'
+									}
+								}
+
+							},
+							{
+								type: 'value',
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: ['#113f71'],
+										type: 'dashed'
+									}
+								},
+								name: '人数(人)',
+								min: peoplemin,
+								position: 'left',
+								axisLine: {
+									lineStyle: {
+										color: colors[1]
+									}
+								},
+								axisLabel: {
+									formatter: '{value}',
+									show: true,
+									textStyle: {
+										fontSize: '14'
+									}
+								}
+							}
+						],
+						series: [{
+								name: '金额',
+								type: 'line',
+								data: ymoneylist
+							},
+							{
+								name: '人数',
+								type: 'line',
+								yAxisIndex: 1,
+								data: ypeoplelist
+							}
+						]
+					};
+					saletrant.setOption(timeoption);
+				} else {
+
+				}
+			}
+		});
+	}
+
+	//一周销量走势
+	var weekmunmax, weekmunmin, weekmoneymax, weekmoneymin, xweeklist, yweeknumlist, yweekmoneylist;
+
+	function saleweek() {
+		var furl = '/ReportManage/Statistic/SaleWeekDayDistribution/';
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			success: function(result) {
+				if(result.type == 1) {
+					weekmunmax = result.resultdata.QuantityMaxValue;
+					weekmunmin = result.resultdata.QuantityMinValue;
+					weekmoneymax = result.resultdata.AmountMaxValue;
+					weekmoneymin = result.resultdata.AmountMinValue;
+					xweeklist = result.resultdata.DayStepList;
+					yweeknumlist = result.resultdata.QuantityList;
+					yweekmoneylist = result.resultdata.AmountList;
+					//一周销量走势折线统计图
+					var saletrant = echarts.init(document.getElementById('saleline'));
+
+					var saleoption = {
+						color: colors,
+						tooltip: {
+							trigger: 'axis'
+						},
+						grid: {
+							left: '2%',
+							right: '2%',
+							bottom: '2%',
+							containLabel: true
+						},
+						legend: {
+							textStyle: {
+								color: '#9fbeea',
+								fontSize: '14'
+							},
+							data: ['人数', '金额']
+						},
+						xAxis: [{
+							type: 'category',
+							splitLine: {
+								show: true,
+								lineStyle: {
+									color: ['#113f71'],
+									type: 'dashed'
+								}
+							},
+							axisTick: {
+								alignWithLabel: true
+							},
+							axisLabel: {
+								show: true,
+								textStyle: {
+									color: '#fff',
+									fontSize: '14'
+								}
+							},
+							axisLine: {
+								lineStyle: {
+									color: '#61638a'
+								}
+							},
+							data: xweeklist
+						}],
+						yAxis: [{
+								type: 'value',
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: ['#113f71'],
+										type: 'dashed'
+									}
+								},
+								name: '金额(元)',
+								min: weekmoneymin,
+								position: 'right',
+								axisLine: {
+									lineStyle: {
+										color: colors[0]
+									}
+								},
+								axisLabel: {
+									formatter: '{value}'
+								},
+								axisLabel: {
+									show: true,
+									textStyle: {
+										fontSize: '14'
+									}
+								}
+
+							},
+							{
+								type: 'value',
+								splitLine: {
+									show: true,
+									lineStyle: {
+										color: ['#113f71'],
+										type: 'dashed'
+									}
+								},
+								name: '人数(人)',
+								min: weekmunmin,
+								position: 'left',
+								axisLine: {
+									lineStyle: {
+										color: colors[1]
+									}
+								},
+								axisLabel: {
+									formatter: '{value}'
+								},
+								axisLabel: {
+									show: true,
+									textStyle: {
+										fontSize: '14'
+									}
+								}
+							}
+						],
+						series: [{
+								name: '金额',
+								type: 'line',
+								data: yweekmoneylist
+							},
+							{
+								name: '人数',
+								type: 'line',
+								yAxisIndex: 1,
+								data: yweeknumlist
+							}
+						]
+					};
+					saletrant.setOption(saleoption);
+				} else {
+
+				}
+			}
+		});
+	}
+
+	//昆明上车热力图统计
+	var kmscmap = new AMap.Map("kmscmap", {
+		resizeEnable: true,
+		center: [102.743812, 25.015105],
+		zoom: 12,
+		mapStyle: "amap://styles/darkblue"
+	});
+	var kmscheat;
+
+	function getkmup() {
+		var furl = '/ReportManage/Statistic/CityHotCoordinate/';
+		var postdata = {
+			StatisticDate: today,
+			CityName: '昆明',
+			UpOrDownType: 0
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1 && result.resultdata.length > 0) {
+					var kmscpoints = result.resultdata[0].CoordinateData;
+					kmscpoints = JSON.parse(kmscpoints);
+					kmscmap.plugin(["AMap.Heatmap"], function() {
+						//初始化heatmap对象
+						kmscheat = new AMap.Heatmap(kmscmap, {
+							radius: 25, //给定半径(热力图显示的圆点的半径)
+							opacity: [0, 0.8]
+							/*,gradient:{
+							 0.5: 'blue',
+							 0.65: 'rgb(117,211,248)',
+							 0.7: 'rgb(0, 255, 0)',
+							 0.9: '#ffea00',
+							 1.0: 'red'
+							 }*/
+						});
+						//设置数据集：该数据为重庆景点数据
+						kmscheat.setDataSet({
+							data: kmscpoints,
+							max: 10
+						});
+					});
+					AMap.plugin([
+						'AMap.ToolBar',
+					], function() {
+						kmscmap.addControl(new AMap.ToolBar({
+							liteStyle: true
+						}));
+					});
+				} else {
+
+				}
+			}
+		});
+	}
+	//昭通上车热力图统计
+	var ztscmap = new AMap.Map("ztscmap", {
+		resizeEnable: true,
+		center: [103.706539, 27.320075],
+		zoom: 13,
+		mapStyle: "amap://styles/darkblue"
+	});
+
+	var ztscheat;
+
+	function getztup() {
+		var furl = '/ReportManage/Statistic/CityHotCoordinate/';
+		var postdata = {
+			StatisticDate: today,
+			CityName: '昭通',
+			UpOrDownType: 0
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1 && result.resultdata.length > 0) {
+					var ztscpoints = result.resultdata[0].CoordinateData;
+					ztscpoints = JSON.parse(ztscpoints);
+					ztscmap.plugin(["AMap.Heatmap"], function() {
+						//初始化heatmap对象
+						ztscheat = new AMap.Heatmap(ztscmap, {
+							radius: 25, //给定半径(热力图显示的圆点的半径)
+							opacity: [0, 0.8]
+							/*,gradient:{
+							 0.5: 'blue',
+							 0.65: 'rgb(117,211,248)',
+							 0.7: 'rgb(0, 255, 0)',
+							 0.9: '#ffea00',
+							 1.0: 'red'
+							 }*/
+						});
+						//设置数据集：该数据为重庆景点数据
+						ztscheat.setDataSet({
+							data: ztscpoints,
+							max: 10
+						});
+					});
+					AMap.plugin([
+						'AMap.ToolBar',
+					], function() {
+						ztscmap.addControl(new AMap.ToolBar({
+							liteStyle: true
+						}));
+					});
+				} else {
+
+				}
+			}
+		});
+	}
+
+	//昆明下车热力图
+	var kmxcmap = new AMap.Map("kmxcmap", {
+		resizeEnable: true,
+		center: [102.706959, 25.043652],
+		zoom: 12,
+		mapStyle: "amap://styles/darkblue"
+	});
+	var kmxcheat;
+
+	function getkmdown() {
+		var furl = '/ReportManage/Statistic/CityHotCoordinate/';
+		var postdata = {
+			StatisticDate: today,
+			CityName: '昆明',
+			UpOrDownType: 1
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1 && result.resultdata.length > 0) {
+					var kmxcpoints = result.resultdata[0].CoordinateData;
+					kmxcpoints = JSON.parse(kmxcpoints);
+					kmxcmap.plugin(["AMap.Heatmap"], function() {
+						//初始化heatmap对象
+						kmxcheat = new AMap.Heatmap(kmxcmap, {
+							radius: 25, //给定半径(热力图显示的圆点的半径)
+							opacity: [0, 0.8]
+							/*,gradient:{
+							 0.5: 'blue',
+							 0.65: 'rgb(117,211,248)',
+							 0.7: 'rgb(0, 255, 0)',
+							 0.9: '#ffea00',
+							 1.0: 'red'
+							 }*/
+						});
+
+						//设置数据集：该数据为重庆景点数据
+						kmxcheat.setDataSet({
+							data: kmxcpoints,
+							max: 10
+						});
+					});
+					AMap.plugin([
+						'AMap.ToolBar',
+					], function() {
+						kmxcmap.addControl(new AMap.ToolBar({
+							liteStyle: true
+						}));
+					});
+
+				} else {
+
+				}
+			}
+		});
+	}
+	//昭通下车热力图
+	var ztxcmap = new AMap.Map("ztxcmap", {
+		resizeEnable: true,
+		center: [103.706539, 27.320075],
+		zoom: 13,
+		mapStyle: "amap://styles/darkblue"
+	});
+	var ztxcheat;
+
+	function getztdown() {
+		var furl = '/ReportManage/Statistic/CityHotCoordinate/';
+		var postdata = {
+			StatisticDate: today,
+			CityName: '昭通',
+			UpOrDownType: 1
+		}
+		$.ajax({
+			url: Serverurl + furl,
+			type: "GET",
+			async: false,
+			dataType: "json",
+			data: postdata,
+			success: function(result) {
+				if(result.type == 1 && result.resultdata.length > 0) {
+					var ztxcpoints = result.resultdata[0].CoordinateData;
+					ztxcpoints = JSON.parse(ztxcpoints);
+					ztxcmap.plugin(["AMap.Heatmap"], function() {
+						//初始化heatmap对象
+						ztxcheat = new AMap.Heatmap(ztxcmap, {
+							radius: 25, //给定半径(热力图显示的圆点的半径)
+							opacity: [0, 0.8]
+							/*,gradient:{
+							 0.5: 'blue',
+							 0.65: 'rgb(117,211,248)',
+							 0.7: 'rgb(0, 255, 0)',
+							 0.9: '#ffea00',
+							 1.0: 'red'
+							 }*/
+						});
+
+						//设置数据集：该数据为重庆景点数据
+						ztxcheat.setDataSet({
+							data: ztxcpoints,
+							max: 10
+						});
+					});
+					AMap.plugin([
+						'AMap.ToolBar',
+					], function() {
+						ztxcmap.addControl(new AMap.ToolBar({
+							liteStyle: true
+						}));
+					});
+
+				} else {
+
+				}
+			}
+		});
+	}
+
+	//热力图切换
+	var mySwiper = new Swiper('.swiper-container', {
+		autoplay: {
+			disableOnInteraction: false,
+			delay: 300000, //1秒切换一次
+		},
+		noSwiping: true,
+		pagination: {
+			el: '.swiper-pagination',
+			type: 'custom',
+			renderCustom: function(swiper, current, total) {
+				var _html = '';
+				var slidearry = ['昆明上车点', '昭通上车点', '昆明下车点', '昭通下车点']
+				for(var i = 1; i <= total; i++) {
+					if(current == i) {
+						_html += '<a class="slide-station slide-active">' + slidearry[i - 1] + '</a>';
+					} else {
+						_html += '<a class="slide-station">' + slidearry[i - 1] + '</a>';
+					}
+				}
+				return _html; //返回所有的页码html
+			}
+		}
+	});
+
+	$('.swiper-pagination').on('click', 'a', function() {
+		var index = $(this).index();
+		mySwiper.slideTo(index, 500, false); //切换到第一个slide，速度为1秒
+	});
+</script>
